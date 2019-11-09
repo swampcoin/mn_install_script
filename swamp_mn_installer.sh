@@ -183,7 +183,7 @@ chown -R $whoami:$whoami /home/$whoami
 echo 'Downloading daemon...'
 cd
 wget https://github.com/swampcoin/swamp/releases/download/v1.1/swamp-daemon-linux-64bit-v1.1.zip >> $LOG_FILE 2>&1
-unzip  >> $LOG_FILE 2>&1swamp-daemon-linux-64bit-v1.1.zip
+unzip swamp-daemon-linux-64bit-v1.1.zip >> $LOG_FILE 2>&1
 chmod -R 755 swampd swamp-cli swamp-tx
 mkdir /usr/bin/swamp
 cp swampd swamp-cli swamp-tx /usr/bin/swamp/ >> $LOG_FILE 2>&1
