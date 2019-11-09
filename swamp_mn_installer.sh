@@ -184,9 +184,8 @@ echo 'Downloading daemon...'
 cd
 wget https://github.com/swampcoin/swamp/releases/download/v1.1/swamp-daemon-linux-64bit-v1.1.zip >> $LOG_FILE 2>&1
 unzip swamp-daemon-linux-64bit-v1.1.zip >> $LOG_FILE 2>&1
-chmod -R 755 swampd swamp-cli swamp-tx
-mkdir /usr/bin/swamp
-cp swampd swamp-cli swamp-tx /usr/bin/swamp/ >> $LOG_FILE 2>&1
+chmod -R 755 swampd swamp-cli swamp-tx >> $LOG_FILE 2>&1
+cp swampd swamp-cli swamp-tx /usr/bin/ >> $LOG_FILE 2>&1
 rm -rf swampd swamp-cli swamp-tx swamp-daemon-linux-64bit-v1.1.zip >> $LOG_FILE 2>&1
 
 # Run swampd as selected user
