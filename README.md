@@ -13,9 +13,9 @@ In your wallet, select 'Debug Console' from the Tools menu<br>
 Use command 'masternode genkey' (this is your Masternode Private Key)<br>
 Open SSH Client, enter your VPS IP, use port '22' and login with username 'root'<br>
 Use the password provided by the VPS provider to gain access to the server<br>
-Once you are logged in, make sure yhave git installed<br>
-sudo apt-get install git -y<br>
-Once confirmed run:<br>
+Once you are logged in, make sure yhave git installed:<br><br>
+sudo apt-get install git -y<br><br>
+Once confirmed run:<br><br>
 git clone https://github.com/swampcoin/mn_install_script.git && cd mn_install_script && chmod +x swamp_mn_installer.sh && ./swamp_mn_installer.sh<br><br>
 
 <b>Completing the Masternode setup,/b><br>
