@@ -1,10 +1,10 @@
 #!/bin/bash
 
-#############################
-# Script by SWAMP evelopers #
-# SWAMP     v1.1.2.1        #
-# https://swampthing.net    #
-#############################
+###################################
+# Script by Swamp Coin Developers #
+# SWAMP     v1.1.2.1              #
+# https://swamptcoin.tech         #
+###################################
 
 LOG_FILE=/tmp/install.log
 
