@@ -2,7 +2,7 @@
 
 #############################
 # Script by SWAMP evelopers #
-# SWAMP     v1.1.0.0        #
+# SWAMP     v1.1.2.1        #
 # https://swampthing.net    #
 #############################
 
@@ -182,11 +182,11 @@ chown -R $whoami:$whoami /home/$whoami
 # Install SWAMP Daemon
 echo 'Downloading daemon...'
 cd
-wget https://github.com/swampcoin/swamp/releases/download/v1.1/swamp-ubuntu16-mn-daemon.zip >> $LOG_FILE 2>&1
-unzip swamp-ubuntu16-mn-daemon.zip >> $LOG_FILE 2>&1
+wget https://github.com/swampcoin/swamp/releases/download/v1.2.2/swamp-daemon-ubuntu-16-linux64bit.zip >> $LOG_FILE 2>&1
+unzip swamp-daemon-ubuntu-16-linux64bit.zip >> $LOG_FILE 2>&1
 chmod -R 755 swampd swamp-cli swamp-tx >> $LOG_FILE 2>&1
 cp swampd swamp-cli swamp-tx /usr/bin/ >> $LOG_FILE 2>&1
-rm -rf swampd swamp-cli swamp-tx swamp-ubuntu16-mn-daemon.zip >> $LOG_FILE 2>&1
+rm -rf swampd swamp-cli swamp-tx swamp-daemon-ubuntu-16-linux64bit.zip >> $LOG_FILE 2>&1
 
 # Run swampd as selected user
 sudo -H -u $whoami bash -c 'swampd' >> $LOG_FILE 2>&1
