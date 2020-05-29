@@ -58,10 +58,10 @@ if [[ "$whoami" == "" ]]; then
 	decho "WARNING: No user entered, exiting!!!"
 	exit 3
 fi
-if [[ "$whoami" == "root" ]]; then
-	decho "WARNING: User root entered? It is recommended to use a non-root user, exiting!!!"
-	exit 3
-fi
+#if [[ "$whoami" == "root" ]]; then
+#	decho "WARNING: User root entered? It is recommended to use a non-root user, exiting!!!"
+#	exit 3
+#fi
 read -e -p "Server IP Address: " ip
 if [[ "$ip" == "" ]]; then
 	decho "WARNING: No IP entered, exiting!!!"
