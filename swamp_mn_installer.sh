@@ -255,4 +255,4 @@ echo ""
 decho "If you have any issues, please get in contact with the SWAMP Developers on Discord (https://discord.gg/PxwMzE2)" 
 
 
-su $whoami
+#su $whoami
