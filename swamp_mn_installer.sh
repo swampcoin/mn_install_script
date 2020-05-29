@@ -198,8 +198,8 @@ decho "Setting up sentinel..."
 
 # Install sentinel
 echo 'Downloading sentinel...'
-git clone https://github.com/swampcoin/sentinel.git /home/$whoami/sentinel >> $LOG_FILE 2>&1
-chown -R $whoami:$whoami $HOME/sentinel >> $LOG_FILE 2>&1
+git clone https://github.com/swampcoin/sentinel.git $HOME/sentinel
+chown -R $whoami:$whoami $HOME/sentinel
 rm $HOME/sentinel/sentinel.conf
 echo 'Creating sentinel.conf...'
 cat << EOF > $HOME/sentinel/sentinel.conf
@@ -215,12 +215,12 @@ network=mainnet
 db_name=database/sentinel.db
 db_driver=sqlite
 EOF
-chown -R $whoami:$whoami $HOME/sentinel/sentinel.conf  >> $LOG_FILE 2>&1
+chown -R $whoami:$whoami $HOME/sentinel/sentinel.conf
 
 echo 'Setting up sentinel...'
 cd /home/$whoami/sentinel
-sudo -H -u $whoami bash -c 'virtualenv ./venv' >> $LOG_FILE 2>&1
-sudo -H -u $whoami bash -c './venv/bin/pip install -r requirements.txt' >> $LOG_FILE 2>&1
+sudo -H -u $whoami bash -c 'virtualenv ./venv'
+sudo -H -u $whoami bash -c './venv/bin/pip install -r requirements.txt'
 
 # Deploy script to keep daemon alive
 cat << EOF > $HOME/swampdkeepalive.sh
@@ -236,8 +236,8 @@ chown $whoami:$whoami $HOME/swampdkeepalive.sh
 # Setup crontab
 echo "@reboot sleep 30 && $HOME/swampdkeepalive.sh" >> newCrontab
 echo "* * * * * cd $HOME/sentinel && ./venv/bin/python bin/sentinel.py >/dev/null 2>&1" >> newCrontab
-crontab -u $whoami newCrontab >> $LOG_FILE 2>&1
-rm newCrontab >> $LOG_FILE 2>&1
+crontab -u $whoami newCrontab
+rm newCrontab
 
 # Final Masternode instructions
 decho "Starting your Masternode"
