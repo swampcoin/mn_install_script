@@ -17,6 +17,9 @@ Once you are logged in, make sure you have git installed:<br><br>
 sudo apt-get install git -y<br><br>
 Once confirmed run:<br><br>
 git clone https://github.com/swampcoin/mn_install_script.git && cd mn_install_script && chmod 755 swamp_mn_installer.sh && ./swamp_mn_installer.sh<br><br>
+To install sentinel only:
+
+git clone https://github.com/swampcoin/mn_install_script.git && cd mn_install_script && chmod 755 sentinel_setup.sh && ./sentinel_setup.sh<br><br>
 
 <b>Completing the Masternode setup,</b><br>
 In your VPS terminal, use command 'swamp-cli mnsync status' and wait for AssetID: to be 999<br>
