@@ -2,7 +2,7 @@
 
 ###################################
 # Script by Swamp Coin Developers #
-# SWAMP     v1.1.2.1              #
+# SWAMP     v2.0.0.2              #
 # https://swamptcoin.tech         #
 ###################################
 
@@ -42,7 +42,7 @@ cat <<'FIG'
 FIG
 
 # Check for systemd
-systemctl --version >/dev/null 2>&1 || { decho "systemd is required. Are you using Ubuntu 16.04?"  >&2; exit 1; }
+systemctl --version >/dev/null 2>&1 || { decho "systemd is required. Are you using Ubuntu 18.04?"  >&2; exit 1; }
 
 # Check if executed as root user
 if [[ $EUID -ne 0 ]]; then
@@ -171,22 +171,20 @@ rpcallowip=127.0.0.1
 listen=1
 server=1
 daemon=1
-maxconnections=8
 masternode=1
 masternodeprivkey=$key
 externalip=$ip
-addnode=108.61.202.115:33333
 EOF
 chown -R $whoami:$whoami /home/$whoami
 
 # Install SWAMP Daemon
 echo 'Downloading daemon...'
 cd
-wget https://github.com/swampcoin/swamp/releases/download/v1.2.2/swamp-daemon-ubuntu-16-linux64bit.zip >> $LOG_FILE 2>&1
-unzip swamp-daemon-ubuntu-16-linux64bit.zip >> $LOG_FILE 2>&1
+wget https://github.com/swampcoin/swamp/releases/download/v2.0.0.2/swamp-v2002-ubuntu18-64.zip >> $LOG_FILE 2>&1
+unzip swamp-v2002-ubuntu18-64.zip >> $LOG_FILE 2>&1
 chmod -R 755 swampd swamp-cli swamp-tx >> $LOG_FILE 2>&1
 cp swampd swamp-cli swamp-tx /usr/bin/ >> $LOG_FILE 2>&1
-rm -rf swampd swamp-cli swamp-tx swamp-daemon-ubuntu-16-linux64bit.zip >> $LOG_FILE 2>&1
+rm -rf swampd swamp-cli swamp-tx swamp-v2002-ubuntu18-64.zip >> $LOG_FILE 2>&1
 
 # Run swampd as selected user
 sudo -H -u $whoami bash -c 'swampd' >> $LOG_FILE 2>&1
@@ -202,6 +200,22 @@ decho "Setting up sentinel..."
 echo 'Downloading sentinel...'
 git clone https://github.com/swampcoin/sentinel.git /home/$whoami/sentinel >> $LOG_FILE 2>&1
 chown -R $whoami:$whoami /home/$whoami/sentinel >> $LOG_FILE 2>&1
+rm /home/$whoami/sentinel/sentinel.conf
+echo 'Creating sentinel.conf...'
+cat << EOF > /home/$whoami/sentinel/sentinel.conf
+# specify path to swamp.conf or leave blank
+# default is the same as SwampCore
+swamp_conf=/home/$whoami/.swampcore/swamp.conf
+
+# valid options are mainnet, testnet (default=mainnet)
+network=mainnet
+#network=testnet
+
+# database connection details
+db_name=database/sentinel.db
+db_driver=sqlite
+EOF
+chown -R $whoami:$whoami /home/$whoami/sentinel/sentinel.conf  >> $LOG_FILE 2>&1
 
 echo 'Setting up sentinel...'
 cd /home/$whoami/sentinel
@@ -234,8 +248,8 @@ echo "2 - In your wallet, select 'Debug Console' from the Tools menu"
 echo "3 - In the Debug Console type the command 'masternode outputs' (these outputs will be used in Masternode Configuration File)" 
 echo "4 - In your wallet, select 'Open Masternode Configuration File' from the Tools menu"
 echo "5 - Following the example, enter the required details on a new line (without #) and save the file"
-echo "6 - In your wallet, click 'Reload Config' from the 'Masternodes' tab"
-echo "7 - Select your Masternode and click 'Start alias'"
+echo "6 - CLose and re-open your wallet"
+echo "7 - Select the masternode tab, then select your Masternode and click 'Start alias'"
 echo "8 - In your VPS terminal, use command 'swamp-cli masternode status' and you should see your Masternode was successfully started"
 echo ""
 decho "If you have any issues, please get in contact with the SWAMP Developers on Discord (https://discord.gg/PxwMzE2)" 
