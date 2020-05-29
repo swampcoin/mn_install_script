@@ -3,7 +3,7 @@
 ###################################
 # Script by Swamp Coin Developers #
 # SWAMP     v2.0.0.2              #
-# https://swamptcoin.tech         #
+# https://swampcoin.tech         #
 ###################################
 
 LOG_FILE=/tmp/install.log
