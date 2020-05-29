@@ -1,19 +1,19 @@
 # mn_install_script
 <b>Automated SwampCoin Masternode Installation Guide</b>
 <br>
-This is a complete guide to setup a Masternode for SwampCoin using the sutomated install script. This method uses a "cold" Windows wallet with a "hot" <b>Ubuntu 16.04 Linux</b> VPS. The reason for this is so your coins will be safe in your Windows wallet offline and the VPS will host the Masternode but will not hold any coins.  <u>Other versions of ubuntu not supported</u>. 
+This is a complete guide to setup a Masternode for SwampCoin using the sutomated install script. This method uses a "cold" Windows wallet with a "hot" <b>Ubuntu 18.04 Linux</b> VPS. The reason for this is so your coins will be safe in your Windows wallet offline and the VPS will host the Masternode but will not hold any coins.  <u>Other versions of ubuntu not supported</u>. 
 <br><br>
 <b>Requirements</b>
 Download the latest SwampCoin Windows wallet here https://github.com/swampcoin/swamp/releases<br>
 Download and install an SSH Client of your choice<br>
-Exactly 1000 SWAMP coins sent to a new receiving address with at least 15 confirmations<br>
-Ubuntu 16.04 VPS (use Vultr with this link and we both get free credit https://www.vultr.com/?ref=8233173 )<br><br>
+Exactly 20000 SWAMP coins sent to a new receiving address with at least 15 confirmations<br>
+Ubuntu 18.04 VPS (use Vultr with this link and we both get free credit https://www.vultr.com/?ref=8233173 )<br><br>
 <b>Running the Masternode script</b><br>
 In your wallet, select 'Debug Console' from the Tools menu<br>
 Use command 'masternode genkey' (this is your Masternode Private Key)<br>
 Open SSH Client, enter your VPS IP, use port '22' and login with username 'root'<br>
 Use the password provided by the VPS provider to gain access to the server<br>
-Once you are logged in, make sure yhave git installed:<br><br>
+Once you are logged in, make sure you have git installed:<br><br>
 sudo apt-get install git -y<br><br>
 Once confirmed run:<br><br>
 git clone https://github.com/swampcoin/mn_install_script.git && cd mn_install_script && chmod 755 swamp_mn_installer.sh && ./swamp_mn_installer.sh<br><br>
