@@ -42,13 +42,13 @@ cat <<'FIG'
 FIG
 
 # Check for systemd
-systemctl --version >/dev/null 2>&1 || { decho "systemd is required. Are you using Ubuntu 18.04?"  >&2; exit 1; }
+#systemctl --version >/dev/null 2>&1 || { decho "systemd is required. Are you using Ubuntu 18.04?"  >&2; exit 1; }
 
 # Check if executed as root user
-if [[ $EUID -ne 0 ]]; then
-	echo -e "This script has to be run as \033[1mroot\033[0m user."
-	exit 1
-fi
+#if [[ $EUID -ne 0 ]]; then
+#	echo -e "This script has to be run as \033[1mroot\033[0m user."
+#	exit 1
+#fi
 
 # Print variable on a screen
 decho "Please make sure you double check information before hitting enter!"
@@ -163,8 +163,8 @@ user=`pwgen -s 16 1`
 password=`pwgen -s 64 1`
 
 echo 'Creating swamp.conf...'
-mkdir -p /home/$whoami/.swampcore/
-cat << EOF > /home/$whoami/.swampcore/swamp.conf
+mkdir -p $HOME/.swampcore/
+cat << EOF > $HOME/.swampcore/swamp.conf
 rpcuser=$user
 rpcpassword=$password
 rpcallowip=127.0.0.1
@@ -175,7 +175,7 @@ masternode=1
 masternodeprivkey=$key
 externalip=$ip
 EOF
-chown -R $whoami:$whoami /home/$whoami
+chown -R $whoami:$whoami $HOME
 
 # Install SWAMP Daemon
 echo 'Downloading daemon...'
@@ -199,13 +199,13 @@ decho "Setting up sentinel..."
 # Install sentinel
 echo 'Downloading sentinel...'
 git clone https://github.com/swampcoin/sentinel.git /home/$whoami/sentinel >> $LOG_FILE 2>&1
-chown -R $whoami:$whoami /home/$whoami/sentinel >> $LOG_FILE 2>&1
-rm /home/$whoami/sentinel/sentinel.conf
+chown -R $whoami:$whoami $HOME/sentinel >> $LOG_FILE 2>&1
+rm $HOME/sentinel/sentinel.conf
 echo 'Creating sentinel.conf...'
-cat << EOF > /home/$whoami/sentinel/sentinel.conf
+cat << EOF > $HOME/sentinel/sentinel.conf
 # specify path to swamp.conf or leave blank
 # default is the same as SwampCore
-swamp_conf=/home/$whoami/.swampcore/swamp.conf
+swamp_conf=$HOME/.swampcore/swamp.conf
 
 # valid options are mainnet, testnet (default=mainnet)
 network=mainnet
@@ -215,7 +215,7 @@ network=mainnet
 db_name=database/sentinel.db
 db_driver=sqlite
 EOF
-chown -R $whoami:$whoami /home/$whoami/sentinel/sentinel.conf  >> $LOG_FILE 2>&1
+chown -R $whoami:$whoami $HOME/sentinel/sentinel.conf  >> $LOG_FILE 2>&1
 
 echo 'Setting up sentinel...'
 cd /home/$whoami/sentinel
@@ -223,19 +223,19 @@ sudo -H -u $whoami bash -c 'virtualenv ./venv' >> $LOG_FILE 2>&1
 sudo -H -u $whoami bash -c './venv/bin/pip install -r requirements.txt' >> $LOG_FILE 2>&1
 
 # Deploy script to keep daemon alive
-cat << EOF > /home/$whoami/swampdkeepalive.sh
+cat << EOF > $HOME/swampdkeepalive.sh
 until swampd; do
     echo "swampd crashed with error $?.  Restarting.." >&2
     sleep 1
 done
 EOF
 
-chmod +x /home/$whoami/swampdkeepalive.sh
-chown $whoami:$whoami /home/$whoami/swampdkeepalive.sh
+chmod +x $HOME/swampdkeepalive.sh
+chown $whoami:$whoami $HOME/swampdkeepalive.sh
 
 # Setup crontab
-echo "@reboot sleep 30 && /home/$whoami/swampdkeepalive.sh" >> newCrontab
-echo "* * * * * cd /home/$whoami/sentinel && ./venv/bin/python bin/sentinel.py >/dev/null 2>&1" >> newCrontab
+echo "@reboot sleep 30 && $HOME/swampdkeepalive.sh" >> newCrontab
+echo "* * * * * cd $HOME/sentinel && ./venv/bin/python bin/sentinel.py >/dev/null 2>&1" >> newCrontab
 crontab -u $whoami newCrontab >> $LOG_FILE 2>&1
 rm newCrontab >> $LOG_FILE 2>&1
 
