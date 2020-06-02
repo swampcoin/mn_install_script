@@ -222,7 +222,7 @@ network=mainnet
 db_name=database/sentinel.db
 db_driver=sqlite
 EOF
-chown -R $$HOME/sentinel/sentinel.conf
+chown -R $HOME/sentinel/sentinel.conf
 
 echo 'Setting up sentinel...'
 cd $HOME/sentinel
