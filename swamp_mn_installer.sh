@@ -206,7 +206,7 @@ decho "Setting up sentinel..."
 # Install sentinel
 echo 'Downloading sentinel...'
 git clone https://github.com/swampcoin/sentinel.git $HOME/sentinel
-chown -R $whoami:$whoami $HOME/sentinel
+#chown -R $whoami:$whoami $HOME/sentinel
 rm $HOME/sentinel/sentinel.conf
 echo 'Creating sentinel.conf...'
 cat << EOF > $HOME/sentinel/sentinel.conf
@@ -222,7 +222,7 @@ network=mainnet
 db_name=database/sentinel.db
 db_driver=sqlite
 EOF
-chown -R $HOME/sentinel/sentinel.conf
+#chown -R $HOME/sentinel/sentinel.conf
 
 echo 'Setting up sentinel...'
 cd $HOME/sentinel
