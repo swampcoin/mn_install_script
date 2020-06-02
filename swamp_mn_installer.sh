@@ -187,7 +187,7 @@ cp swampd swamp-cli swamp-tx /usr/bin/ >> $LOG_FILE 2>&1
 rm -rf swampd swamp-cli swamp-tx swamp-v2002-ubuntu18-64.zip >> $LOG_FILE 2>&1
 
 # Run swampd as selected user
-sudo -H -u $whoami bash -c 'swampd' >> $LOG_FILE 2>&1
+sudo -H -u $whoami bash -c 'swampd'
 
 echo 'SWAMP Core prepared and launched...'
 
