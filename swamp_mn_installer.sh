@@ -122,10 +122,10 @@ apt-get -y update >> $LOG_FILE 2>&1
 apt-get -y install libdb4.8-dev libdb4.8++-dev >> $LOG_FILE 2>&1
 
 decho "Installing miniupnpc..."
-sudo apt-get install libminiupnpc-dev >> $LOG_FILE 2>&
+sudo apt-get -y install libminiupnpc-dev >> $LOG_FILE 2>&
 
 decho "Installing libzmq..."
-sudo apt-get install libzmq3-dev >> $LOG_FILE 2>&
+sudo apt-get -y install libzmq3-dev >> $LOG_FILE 2>&
 
 
 if [[ ("$install_fail2ban" == "y" || "$install_fail2ban" == "Y" || "$install_fail2ban" == "") ]]; then
