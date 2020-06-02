@@ -10,7 +10,8 @@ Exactly 20000 SWAMP coins sent to a new receiving address with at least 15 confi
 Ubuntu 18.04 VPS (use Vultr with this link and we both get free credit https://www.vultr.com/?ref=8233173 )<br><br>
 <b>Running the Masternode script</b><br>
 In your wallet, select 'Debug Console' from the Tools menu<br>
-Use command 'masternode genkey' (this is your Masternode Private Key)<br>
+Use command 'masternode genkey' (this is your Masternode Private Key) and save it for use later<br>
+Use command 'masternode outputs' (this is your txid or transaction id of the 20k collateral), savve it <br>
 Open SSH Client, enter your VPS IP, use port '22' and login with username 'root'<br>
 Use the password provided by the VPS provider to gain access to the server<br>
 Once you are logged in, make sure you have git installed:<br><br>
