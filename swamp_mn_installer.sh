@@ -112,7 +112,7 @@ decho "Installing daemon packages and dependencies..."
 
 apt-get -y install software-properties-common libzmq3-dev pwgen >> $LOG_FILE 2>&1
 apt-get -y install git libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev libboost-all-dev unzip libminiupnpc-dev python-virtualenv >> $LOG_FILE 2>&1
-apt-get -y install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils >> $LOG_FILE 2>&1
+apt-get -y install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils python-pip>> $LOG_FILE 2>&1
 
 # Add Berkely PPA
 decho "Installing bitcoin PPA..."
