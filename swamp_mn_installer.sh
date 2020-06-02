@@ -93,7 +93,7 @@ fi
 decho "Updating system and installing required packages..."   
 
 apt-get -y update
-apt-get -y uprade
+apt-get -y upgrade
 
 # Install required packages
 decho "Installing base packages and dependencies..."
