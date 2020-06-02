@@ -222,12 +222,12 @@ network=mainnet
 db_name=database/sentinel.db
 db_driver=sqlite
 EOF
-chown -R $whoami:$whoami $HOME/sentinel/sentinel.conf
+chown -R $$HOME/sentinel/sentinel.conf
 
 echo 'Setting up sentinel...'
-cd /home/$whoami/sentinel
-sudo -H -u $whoami bash -c 'virtualenv ./venv'
-sudo -H -u $whoami bash -c './venv/bin/pip install -r requirements.txt'
+cd $HOME/sentinel
+virtualenv ./venv
+/venv/bin/pip install -r requirements.txt
 
 # Deploy script to keep daemon alive
 cat << EOF > $HOME/swampdkeepalive.sh
