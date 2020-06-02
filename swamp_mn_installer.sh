@@ -227,7 +227,7 @@ EOF
 echo 'Setting up sentinel...'
 cd $HOME/sentinel
 virtualenv ./venv
-/venv/bin/pip install -r requirements.txt
+./venv/bin/pip install -r requirements.txt
 
 # Deploy script to keep daemon alive
 cat << EOF > $HOME/swampdkeepalive.sh
