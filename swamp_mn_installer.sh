@@ -92,7 +92,8 @@ fi
 # Update package and upgrade Ubuntu
 decho "Updating system and installing required packages..."   
 
-apt-get -y update >> $LOG_FILE 2>&1
+apt-get -y update
+apt-get -y uprade
 
 # Install required packages
 decho "Installing base packages and dependencies..."
@@ -119,6 +120,12 @@ decho "Installing bitcoin PPA..."
 apt-add-repository -y ppa:bitcoin/bitcoin >> $LOG_FILE 2>&1
 apt-get -y update >> $LOG_FILE 2>&1
 apt-get -y install libdb4.8-dev libdb4.8++-dev >> $LOG_FILE 2>&1
+
+decho "Installing miniupnpc..."
+sudo apt-get install libminiupnpc-dev >> $LOG_FILE 2>&
+
+decho "Installing libzmq..."
+sudo apt-get install libzmq3-dev >> $LOG_FILE 2>&
 
 
 if [[ ("$install_fail2ban" == "y" || "$install_fail2ban" == "Y" || "$install_fail2ban" == "") ]]; then
@@ -186,8 +193,8 @@ chmod -R 755 swampd swamp-cli swamp-tx >> $LOG_FILE 2>&1
 cp swampd swamp-cli swamp-tx /usr/bin/ >> $LOG_FILE 2>&1
 rm -rf swampd swamp-cli swamp-tx swamp-v2002-ubuntu18-64.zip >> $LOG_FILE 2>&1
 
-# Run swampd as selected user
-sudo -H -u $whoami bash -c 'swampd'
+# Run swampd 
+sudo swampd
 
 echo 'SWAMP Core prepared and launched...'
 
