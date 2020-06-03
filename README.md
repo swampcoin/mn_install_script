@@ -1,13 +1,16 @@
 # mn_install_script
 <b>Automated SwampCoin Masternode Installation Guide</b>
 <br>
-This is a complete guide to setup a Masternode for SwampCoin using the sutomated install script. This method uses a "cold" Windows wallet with a "hot" <b>Ubuntu 18.04 Linux</b> VPS. The reason for this is so your coins will be safe in your Windows wallet offline and the VPS will host the Masternode but will not hold any coins.  <u>Other versions of ubuntu not supported</u>. 
+This is a complete guide to setup a Masternode for SwampCoin using the automated install script. This method uses a "cold" Windows wallet with a "hot" <b>Ubuntu 18.04 Linux</b> VPS. The reason for this is so your coins will be safe in your Windows wallet offline and the VPS will host the Masternode but will not hold any coins.  <u>Other versions of ubuntu not supported</u>. 
 <br><br>
 <b>Requirements</b>
 Download the latest SwampCoin Windows wallet here https://github.com/swampcoin/swamp/releases<br>
-Download and install an SSH Client of your choice<br>
+Download and install an SSH Client of your choice (we reccommend putty https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)<br>
 Exactly 20000 SWAMP coins sent to a new receiving address with at least 15 confirmations<br>
-Ubuntu 18.04 VPS (use Vultr with this link and we both get free credit https://www.vultr.com/?ref=8233173 )<br><br>
+A private key generate from your local wallet by going to the debug console or command line and entering <b>masternode genkey</b><br>
+Ubuntu 18.04 VPS (use Vultr with this link and we both get free credit https://www.vultr.com/?ref=8233173 )<br>
+The ip address of your VPS/Server<br>
+Your local wallet's masternode.conf file configured as documented in the <b>Preparing the conf Files</b> section of https://github.com/swampcoin/swamp/blob/master/doc/masternode-setup.md<br><br>
 <b>Running the Masternode script</b><br>
 In your wallet, select 'Debug Console' from the Tools menu<br>
 Use command 'masternode genkey' (this is your Masternode Private Key) and save it for use later<br>
