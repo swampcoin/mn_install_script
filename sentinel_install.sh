@@ -1,7 +1,7 @@
 # Install sentinel
 echo 'Installing dependencies...'
-apt-get -y python-pip
-apt-get -y install python
+sudo apt-get -y python-pip
+sudo apt-get -y install python
 echo 'Downloading sentinel...'
 git clone https://github.com/swampcoin/sentinel.git $HOME/sentinel
 #chown -R $whoami:$whoami $HOME/sentinel
