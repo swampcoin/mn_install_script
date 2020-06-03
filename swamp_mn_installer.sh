@@ -92,34 +92,34 @@ fi
 # Update package and upgrade Ubuntu
 decho "Updating system and installing required packages..."   
 
-apt-get -y update
-apt-get -y upgrade
+sudo apt-get -y update
+sudo apt-get -y upgrade
 
 # Install required packages
 decho "Installing base packages and dependencies..."
 
-apt-get -y install sudo >> $LOG_FILE 2>&1
-apt-get -y install wget >> $LOG_FILE 2>&1
-apt-get -y install git >> $LOG_FILE 2>&1
-apt-get -y install unzip >> $LOG_FILE 2>&1
-apt-get -y install virtualenv >> $LOG_FILE 2>&1
-apt-get -y install python-virtualenv >> $LOG_FILE 2>&1
-apt-get -y install pwgen >> $LOG_FILE 2>&1
-apt-get -y install mc >> $LOG_FILE 2>&1
+sudo apt-get -y install sudo >> $LOG_FILE 2>&1
+sudo apt-get -y install wget >> $LOG_FILE 2>&1
+sudo apt-get -y install git >> $LOG_FILE 2>&1
+sudo apt-get -y install unzip >> $LOG_FILE 2>&1
+sudo apt-get -y install virtualenv >> $LOG_FILE 2>&1
+sudo apt-get -y install python-virtualenv >> $LOG_FILE 2>&1
+sudo apt-get -y install pwgen >> $LOG_FILE 2>&1
+sudo apt-get -y install mc >> $LOG_FILE 2>&1
 
 # Install daemon packages
 decho "Installing daemon packages and dependencies..."
 
-apt-get -y install software-properties-common libzmq3-dev pwgen >> $LOG_FILE 2>&1
-apt-get -y install git libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev libboost-all-dev unzip libminiupnpc-dev python-virtualenv >> $LOG_FILE 2>&1
-apt-get -y install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils python-pip unzip>> $LOG_FILE 2>&1
+sudo apt-get -y install software-properties-common libzmq3-dev pwgen >> $LOG_FILE 2>&1
+sudo apt-get -y install git libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev libboost-all-dev unzip libminiupnpc-dev python-virtualenv >> $LOG_FILE 2>&1
+sudo apt-get -y install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils python-pip unzip>> $LOG_FILE 2>&1
 
 # Add Berkely PPA
 decho "Installing bitcoin PPA..."
 
-apt-add-repository -y ppa:bitcoin/bitcoin >> $LOG_FILE 2>&1
-apt-get -y update >> $LOG_FILE 2>&1
-apt-get -y install libdb4.8-dev libdb4.8++-dev >> $LOG_FILE 2>&1
+sudo apt-add-repository -y ppa:bitcoin/bitcoin >> $LOG_FILE 2>&1
+sudo apt-get -y update >> $LOG_FILE 2>&1
+sudo apt-get -y install libdb4.8-dev libdb4.8++-dev >> $LOG_FILE 2>&1
 
 decho "Installing miniupnpc..."
 sudo apt-get -y install libminiupnpc-dev
@@ -131,22 +131,22 @@ sudo apt-get -y install libzmq3-dev
 if [[ ("$install_fail2ban" == "y" || "$install_fail2ban" == "Y" || "$install_fail2ban" == "") ]]; then
 	decho "Optional install: Fail2ban"
 	cd ~
-	apt-get -y install fail2ban >> $LOG_FILE 2>&1
+	sudo apt-get -y install fail2ban >> $LOG_FILE 2>&1
 	systemctl enable fail2ban >> $LOG_FILE 2>&1
 	systemctl start fail2ban >> $LOG_FILE 2>&1
 fi
 
 if [[ ("$UFW" == "y" || "$UFW" == "Y" || "$UFW" == "") ]]; then
 	decho "Optional install: UFW"
-	apt-get -y install ufw >> $LOG_FILE 2>&1
-	ufw allow ssh/tcp >> $LOG_FILE 2>&1
-	ufw allow sftp/tcp >> $LOG_FILE 2>&1
-	ufw allow 33333/tcp >> $LOG_FILE 2>&1
-	ufw allow 33334/tcp >> $LOG_FILE 2>&1
-	ufw default deny incoming >> $LOG_FILE 2>&1
-	ufw default allow outgoing >> $LOG_FILE 2>&1
-	ufw logging on >> $LOG_FILE 2>&1
-	ufw --force enable >> $LOG_FILE 2>&1
+	sudo apt-get -y install ufw >> $LOG_FILE 2>&1
+	sudo ufw allow ssh/tcp >> $LOG_FILE 2>&1
+	sudo ufw allow sftp/tcp >> $LOG_FILE 2>&1
+	sudo ufw allow 33333/tcp >> $LOG_FILE 2>&1
+	sudo ufw allow 33334/tcp >> $LOG_FILE 2>&1
+	sudo ufw default deny incoming >> $LOG_FILE 2>&1
+	sudo ufw default allow outgoing >> $LOG_FILE 2>&1
+	sudo ufw logging on >> $LOG_FILE 2>&1
+	sudo ufw --force enable >> $LOG_FILE 2>&1
 fi
 
 decho "Create user $whoami (if necessary)"
