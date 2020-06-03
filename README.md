@@ -5,9 +5,9 @@ This is a complete guide to setup a Masternode for SwampCoin using the automated
 <br><br>
 <b>Requirements</b>
 Download the latest SwampCoin Windows wallet here https://github.com/swampcoin/swamp/releases<br>
-Download and install an SSH Client of your choice (we reccommend putty https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)<br>
+Download and install an SSH client (https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)<br>
 Exactly 20000 SWAMP coins sent to a new receiving address with at least 15 confirmations<br>
-A private key generate from your local wallet by going to the debug console or command line and entering <b>masternode genkey</b><br>
+A private key generate from your local wallet (<b>masternode genkey</b> in debug console)<br>
 Ubuntu 18.04 VPS (use Vultr with this link and we both get free credit https://www.vultr.com/?ref=8233173 )<br>
 The ip address of your VPS/Server<br>
 Your local wallet's masternode.conf file configured as documented in the <b>Preparing the conf Files</b> section of https://github.com/swampcoin/swamp/blob/master/doc/masternode-setup.md<br><br>
