@@ -19,9 +19,9 @@ Open SSH Client, enter your VPS IP, use port '22' and login with username 'root'
 Use the password provided by the VPS provider to gain access to the server<br>
 Once you are logged in, make sure you have git installed:<br><br>
 sudo apt-get install git -y<br><br>
-Once confirmed run:<br><br>
+Once confirmed run the full install script:<br><br>
 git clone https://github.com/swampcoin/mn_install_script.git && cd mn_install_script && chmod 755 swamp_mn_installer.sh && ./swamp_mn_installer.sh<br><br>
-To install sentinel only:
+To install sentinel only (the script above does this so skip if have run the full install):
 
 git clone https://github.com/swampcoin/mn_install_script.git && cd mn_install_script && chmod 755 sentinel_setup.sh && ./sentinel_setup.sh<br><br>
 
