@@ -187,11 +187,11 @@ chown -R $whoami:$whoami $HOME
 # Install SWAMP Daemon
 echo 'Downloading daemon...'
 cd
-wget https://github.com/swampcoin/swamp/releases/download/v2.0.0.2/swamp-v2002-ubuntu18-64.zip >> $LOG_FILE 2>&1
-unzip swamp-v2002-ubuntu18-64.zip >> $LOG_FILE 2>&1
+wget https://github.com/swampcoin/swamp/releases/download/v2.0.0.3/swamp-v2.0.0.3-ubuntu-18.04-64-bit.zip >> $LOG_FILE 2>&1
+unzip swamp-v2.0.0.3-ubuntu-18.04-64-bit.zip >> $LOG_FILE 2>&1
 chmod -R 755 swampd swamp-cli swamp-tx >> $LOG_FILE 2>&1
 cp swampd swamp-cli swamp-tx /usr/bin/ >> $LOG_FILE 2>&1
-rm -rf swampd swamp-cli swamp-tx swamp-v2002-ubuntu18-64.zip >> $LOG_FILE 2>&1
+rm -rf swampd swamp-cli swamp-tx swamp-v2.0.0.3-ubuntu-18.04-64-bit.zip >> $LOG_FILE 2>&1
 
 # Run swampd 
 sudo swampd
