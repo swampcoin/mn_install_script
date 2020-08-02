@@ -44,4 +44,4 @@ If script doesn't start:<br>
 
 Check that you have write permission in the current folder<br>
 Check that you can change permission on a file<br>
-If you are still facing issues, please get in contact with the Veco Developers on Discord (https://discord.gg/PxwMzE2)
+If you are still facing issues, please get in contact with the Swamo Coin community on Discord (https://discord.gg/PxwMzE2)
