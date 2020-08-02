@@ -2,7 +2,7 @@
 
 ###################################
 # Script by Swamp Coin Developers #
-# SWAMP     v2.0.0.2              #
+# SWAMP     v2.0.0.3              #
 # https://swampcoin.tech         #
 ###################################
 
